@@ -1,30 +1,17 @@
 package com.happytown.core.domain;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.time.LocalDate;
 
-@JsonPropertyOrder({ "id", "nom", "prenom", "email", "dateNaissance", "dateArriveeCommune", "adressePostale", "cadeauOffert", "dateAttributionCadeau" })
 public class Habitant {
 
-    @ApiModelProperty(position = 0)
     private String id;
-    @ApiModelProperty(position = 1)
     private String nom;
-    @ApiModelProperty(position = 2)
     private String prenom;
-    @ApiModelProperty(position = 3)
     private String email;
-    @ApiModelProperty(position = 4)
     private LocalDate dateNaissance;
-    @ApiModelProperty(position = 5)
     private LocalDate dateArriveeCommune;
-    @ApiModelProperty(position = 6)
     private String adressePostale;
-    @ApiModelProperty(position = 7)
     private String cadeauOffert;
-    @ApiModelProperty(position = 8)
     private LocalDate dateAttributionCadeau;
 
     public Habitant() {
@@ -110,5 +97,10 @@ public class Habitant {
 
     public void setAdressePostale(String adressePostale) {
         this.adressePostale = adressePostale;
+    }
+
+    public void attribuerCadeau(String cadeauOffert, LocalDate dateAttributionCadeau) {
+        this.cadeauOffert = cadeauOffert;
+        this.dateAttributionCadeau = dateAttributionCadeau;
     }
 }

@@ -42,14 +42,20 @@ public class HappyTownService {
         List<Habitant> habitantsAttributionCadeau = new ArrayList<>();
 
         for (Habitant habitant : habitantsEligibles) {
+
             Optional<TrancheAge> trancheAge = getTrancheAgeCadeau(dateCourante, habitant, cadeauxByTrancheAge.keySet());
+
             if (trancheAge.isPresent()) {
+
                 List<Cadeau> cadeauxPossibles = cadeauxByTrancheAge.get(trancheAge.get());
                 Cadeau randomCadeau = cadeauxPossibles.get(random.nextInt(cadeauxPossibles.size()));
+
                 envoiMessage(smtpHost, smtpPort, habitant, randomCadeau);
-                habitant.setCadeauOffert(randomCadeau.getDetail());
-                habitant.setDateAttributionCadeau(dateCourante);
+
+                habitant.attribuerCadeau(randomCadeau.getDetail(), dateCourante);
+
                 habitantProvider.save(habitant);
+
                 habitantsAttributionCadeau.add(habitant);
             }
         }
