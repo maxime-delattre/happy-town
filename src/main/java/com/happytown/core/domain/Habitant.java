@@ -3,17 +3,11 @@ package com.happytown.core.domain;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "habitant")
 @JsonPropertyOrder({ "id", "nom", "prenom", "email", "dateNaissance", "dateArriveeCommune", "adressePostale", "cadeauOffert", "dateAttributionCadeau" })
 public class Habitant {
 
-    @Id
     @ApiModelProperty(position = 0)
     private String id;
     @ApiModelProperty(position = 1)
@@ -74,7 +68,47 @@ public class Habitant {
         return dateAttributionCadeau;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public LocalDate getDateArriveeCommune() {
+        return dateArriveeCommune;
+    }
+
+    public String getAdressePostale() {
+        return adressePostale;
+    }
+
     public void setDateAttributionCadeau(LocalDate dateAttributionCadeau) {
         this.dateAttributionCadeau = dateAttributionCadeau;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setDateNaissance(LocalDate dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public void setDateArriveeCommune(LocalDate dateArriveeCommune) {
+        this.dateArriveeCommune = dateArriveeCommune;
+    }
+
+    public void setAdressePostale(String adressePostale) {
+        this.adressePostale = adressePostale;
     }
 }

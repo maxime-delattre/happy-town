@@ -1,7 +1,5 @@
 package com.happytown.infrastructure;
 
-import com.happytown.core.domain.Habitant;
-import com.happytown.infrastructure.HabitantRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +14,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
-class HabitantRepositoryIntegrationTest {
+class HabitantJpaRepositoryIntegrationTest {
 
     @Autowired
     TestEntityManager testEntityManager;
 
     @Autowired
-    HabitantRepository habitantRepository;
+    HabitantJpaRepository habitantJpaRepository;
 
     @Test
     void findAll_shouldReturnAllHabitantsOfHappyTown() {
         // When
-        List<Habitant> habitants = habitantRepository.findAll();
+        List<HabitantJpa> habitants = habitantJpaRepository.findAll();
 
         // Then
         assertThat(habitants).hasSize(3);
@@ -36,12 +34,12 @@ class HabitantRepositoryIntegrationTest {
     @Test
     void findByDateArriveeCommuneLessThanEqualAndCadeauOffertIsNullAndDateAttributionCadeauIsNull() {
         // Given
-        Habitant firstHabitant = testEntityManager.find(Habitant.class, "5e18367a-1eb3-4b91-b87a-44cd210ef7ba");
-        Habitant secondHabitant = testEntityManager.find(Habitant.class, "aebb21fa-b981-4baa-9668-52be5ea3ce90");
+        HabitantJpa firstHabitant = testEntityManager.find(HabitantJpa.class, "5e18367a-1eb3-4b91-b87a-44cd210ef7ba");
+        HabitantJpa secondHabitant = testEntityManager.find(HabitantJpa.class, "aebb21fa-b981-4baa-9668-52be5ea3ce90");
         LocalDate dateArriveeCommune = LocalDate.now().minusYears(1);
 
         // When
-        List<Habitant> habitants = habitantRepository.findByDateArriveeCommuneLessThanEqualAndCadeauOffertIsNullAndDateAttributionCadeauIsNullOrderByDateArriveeCommune(dateArriveeCommune);
+        List<HabitantJpa> habitants = habitantJpaRepository.findByDateArriveeCommuneLessThanEqualAndCadeauOffertIsNullAndDateAttributionCadeauIsNullOrderByDateArriveeCommune(dateArriveeCommune);
 
         // Then
         assertThat(habitants).hasSize(2);

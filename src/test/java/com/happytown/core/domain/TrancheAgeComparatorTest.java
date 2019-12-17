@@ -1,7 +1,5 @@
-package com.happytown.service;
+package com.happytown.core.domain;
 
-import com.happytown.core.domain.TrancheAge;
-import com.happytown.core.domain.TrancheAgeComparator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;

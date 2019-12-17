@@ -1,6 +1,6 @@
 package com.happytown.infrastructure;
 
-import com.happytown.fixtures.HabitantFixture;
+import com.happytown.fixtures.HabitantJpaFixture;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,20 +18,20 @@ class HabitantDatabaseProviderTest {
     private HabitantDatabaseProvider habitantDatabaseProvider;
 
     @Mock
-    private HabitantRepository habitantRepository;
+    private HabitantJpaRepository habitantJpaRepository;
 
     @Test
     void getAll_shouldReturnHabitantsFromRepository() {
         // Given
-        var habitantAttendu = HabitantFixture.aHabitant();
-        var habitantsAttendus = Lists.newArrayList(habitantAttendu);
-        BDDMockito.doReturn(habitantsAttendus).when(habitantRepository).findAll();
+        var habitantJpaAttendu = HabitantJpaFixture.aHabitantJpaSansCadeau();
+        var habitantsJpaAttendus = Lists.newArrayList(habitantJpaAttendu);
+        BDDMockito.doReturn(habitantsJpaAttendus).when(habitantJpaRepository).findAll();
 
         // When
         var habitantsObtenus = habitantDatabaseProvider.getAll();
 
         // Then
         var habitantObtenu = habitantsObtenus.get(0);
-        assertThat(habitantObtenu).isEqualToComparingFieldByField(habitantAttendu);
+        assertThat(habitantObtenu).isEqualToComparingFieldByField(habitantJpaAttendu);
     }
 }
