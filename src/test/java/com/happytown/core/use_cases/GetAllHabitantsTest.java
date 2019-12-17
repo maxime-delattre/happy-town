@@ -2,7 +2,6 @@ package com.happytown.core.use_cases;
 
 import com.happytown.core.domain.Habitant;
 import com.happytown.fixtures.HabitantFixture;
-import com.happytown.infrastructure.HabitantRepository;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,13 +21,13 @@ class GetAllHabitantsTest {
     GetAllHabitants getAllHabitants;
 
     @Mock
-    HabitantRepository habitantRepository;
+    HabitantProvider habitantProvider;
 
     @Test
     void execute_shouldReturnHabitantsFromProvider() {
         // Given
         List<Habitant> habitants = Lists.newArrayList(HabitantFixture.aHabitant());
-        BDDMockito.doReturn(habitants).when(habitantRepository).findAll();
+        BDDMockito.doReturn(habitants).when(habitantProvider).getAll();
 
         // When
         List<Habitant> results = getAllHabitants.execute();

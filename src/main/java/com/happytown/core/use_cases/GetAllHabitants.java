@@ -1,19 +1,18 @@
 package com.happytown.core.use_cases;
 
 import com.happytown.core.domain.Habitant;
-import com.happytown.infrastructure.HabitantRepository;
 
 import java.util.List;
 
 public class GetAllHabitants {
 
-    private HabitantRepository habitantRepository;
+    private HabitantProvider habitantProvider;
 
-    public GetAllHabitants(HabitantRepository habitantRepository) {
-        this.habitantRepository = habitantRepository;
+    public GetAllHabitants(HabitantProvider habitantProvider) {
+        this.habitantProvider = habitantProvider;
     }
 
     public List<Habitant> execute() {
-        return habitantRepository.findAll();
+        return habitantProvider.getAll();
     }
 }
