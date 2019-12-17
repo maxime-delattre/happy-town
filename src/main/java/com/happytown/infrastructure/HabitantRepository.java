@@ -1,4 +1,4 @@
-package com.happytown.repository;
+package com.happytown.infrastructure;
 
 import com.happytown.core.domain.Habitant;
 import org.springframework.data.jpa.repository.JpaRepository;

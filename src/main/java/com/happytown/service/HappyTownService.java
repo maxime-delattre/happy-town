@@ -4,7 +4,7 @@ import com.happytown.core.domain.Cadeau;
 import com.happytown.core.domain.Habitant;
 import com.happytown.core.domain.TrancheAge;
 import com.happytown.core.domain.TrancheAgeComparator;
-import com.happytown.repository.HabitantRepository;
+import com.happytown.infrastructure.HabitantRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
