@@ -1,6 +1,8 @@
 package com.happytown.infrastructure;
 
 import com.happytown.fixtures.HabitantJpaFixture;
+import com.happytown.infrastructure.database.HabitantDatabaseProvider;
+import com.happytown.infrastructure.database.HabitantJpaRepository;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

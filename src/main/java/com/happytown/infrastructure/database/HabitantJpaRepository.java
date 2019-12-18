@@ -1,4 +1,4 @@
-package com.happytown.infrastructure;
+package com.happytown.infrastructure.database;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

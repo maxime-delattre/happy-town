@@ -22,3 +22,8 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+mail:
+  smtp:
+    host: localhost
+    port: 2525
+    from: mairie@happytown.com

@@ -1,7 +1,7 @@
 package com.happytown.fixtures;
 
 
-import com.happytown.infrastructure.HabitantJpa;
+import com.happytown.infrastructure.database.HabitantJpa;
 
 import java.time.LocalDate;
 import java.util.UUID;

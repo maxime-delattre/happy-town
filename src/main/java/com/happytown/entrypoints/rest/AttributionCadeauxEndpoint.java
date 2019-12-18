@@ -18,9 +18,6 @@ public class AttributionCadeauxEndpoint {
 
     private AttribuerCadeaux attribuerCadeaux;
 
-    private static final String SMTP_HOST = "localhost";
-    private static final int SMTP_PORT = 2525;
-
     public AttributionCadeauxEndpoint(AttribuerCadeaux attribuerCadeaux) {
         this.attribuerCadeaux = attribuerCadeaux;
     }
@@ -30,6 +27,6 @@ public class AttributionCadeauxEndpoint {
     public void attribuerCadeaux() throws IOException, MessagingException {
         String fileName = "src/main/resources/cadeaux.txt";
         LocalDate now = LocalDate.now();
-        attribuerCadeaux.execute(fileName, now, SMTP_HOST, SMTP_PORT);
+        attribuerCadeaux.execute(fileName, now);
     }
 }

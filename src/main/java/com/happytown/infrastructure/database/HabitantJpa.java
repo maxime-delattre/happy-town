@@ -1,4 +1,4 @@
-package com.happytown.infrastructure;
+package com.happytown.infrastructure.database;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

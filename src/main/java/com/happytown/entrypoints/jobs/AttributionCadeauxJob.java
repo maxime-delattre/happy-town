@@ -17,8 +17,6 @@ public class AttributionCadeauxJob {
 
     private final AttribuerCadeaux attribuerCadeaux;
 
-    private static final String SMTP_HOST = "localhost";
-    private static final int SMTP_PORT = 2525;
     private static final Logger LOGGER = LoggerFactory.getLogger(AttributionCadeauxJob.class);
 
     public AttributionCadeauxJob(AttribuerCadeaux attribuerCadeaux) {
@@ -30,7 +28,7 @@ public class AttributionCadeauxJob {
         LOGGER.info("Start Task attribuerCadeaux");
         String fileName = "src/main/resources/cadeaux.txt";
         LocalDate now = LocalDate.now();
-        attribuerCadeaux.execute(fileName, now, SMTP_HOST, SMTP_PORT);
+        attribuerCadeaux.execute(fileName, now);
         LOGGER.info("End Task attribuerCadeaux");
     }
 }

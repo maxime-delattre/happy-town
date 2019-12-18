@@ -1,4 +1,4 @@
-package com.happytown.infrastructure;
+package com.happytown.infrastructure.database;
 
 import com.happytown.core.domain.Habitant;
 import com.happytown.core.use_cases.HabitantProvider;
