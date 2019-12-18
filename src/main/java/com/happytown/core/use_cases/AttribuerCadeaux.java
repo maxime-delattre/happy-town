@@ -1,12 +1,10 @@
-package com.happytown.service;
+package com.happytown.core.use_cases;
 
 import com.happytown.core.domain.Cadeau;
 import com.happytown.core.domain.Habitant;
 import com.happytown.core.domain.TrancheAge;
 import com.happytown.core.domain.TrancheAgeComparator;
-import com.happytown.core.use_cases.HabitantProvider;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Component;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -22,20 +20,19 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 
-@Service
-@Transactional
-public class HappyTownService {
+@Component
+public class AttribuerCadeaux {
 
-    private final HabitantProvider habitantProvider;
-    private final Random random;
+    private HabitantProvider habitantProvider;
 
-    public HappyTownService(HabitantProvider habitantProvider) {
+    private Random random;
+
+    public AttribuerCadeaux(HabitantProvider habitantProvider) {
         this.habitantProvider = habitantProvider;
-        random = new Random();
+        this.random = new Random();
     }
 
-    public void attribuerCadeaux(String fileName, LocalDate dateCourante, String smtpHost, int smtpPort) throws IOException, MessagingException {
-
+    public void execute(String fileName, LocalDate dateCourante, String smtpHost, int smtpPort) throws IOException, MessagingException {
         Map<TrancheAge, List<Cadeau>> cadeauxByTrancheAge = buildCadeauxByTrancheAge(fileName);
         List<Habitant> habitantsEligibles = habitantProvider.
                 findByDateArriveeCommuneLessThanEqualAndCadeauOffertIsNullAndDateAttributionCadeauIsNullOrderByDateArriveeCommune(dateCourante.minusYears(1));
@@ -133,5 +130,5 @@ public class HappyTownService {
 
         Transport.send(msg);
     }
-
 }
+
