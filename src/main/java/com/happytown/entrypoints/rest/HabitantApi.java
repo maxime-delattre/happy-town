@@ -1,4 +1,4 @@
-package com.happytown.entrypoints;
+package com.happytown.entrypoints.rest;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModelProperty;

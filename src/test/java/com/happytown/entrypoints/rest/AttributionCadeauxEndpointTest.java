@@ -1,4 +1,4 @@
-package com.happytown.entrypoints;
+package com.happytown.entrypoints.rest;
 
 import com.happytown.core.use_cases.AttribuerCadeaux;
 import org.junit.jupiter.api.Test;
