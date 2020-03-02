@@ -15,6 +15,7 @@ ext {
     mockitoVersion = '2.27.0'
     springBootVersion = '2.1.4.RELEASE'
     swaggerVersion = '2.9.2'
+    awaitilityVersion = '4.0.2'
 }
 
 group = 'com.happytown'
@@ -51,6 +52,8 @@ dependencies {
     testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
     testImplementation "org.assertj:assertj-core:${assertjVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation 'io.rest-assured:rest-assured:4.2.0'
+    testImplementation "org.awaitility:awaitility:${awaitilityVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "dumbster:dumbster:${dumbsterVersion}"
 
